@@ -3,7 +3,7 @@
 <hr/>
 <strong>Tecnologias utilizadas - Python | Flask | MySQL<br></strong>
 <strong>Deploy - Pythonanywhere<br><br></strong>
-<strong><a href="https://github.com/phlucasfr/API_faturamento_Sances/blob/main/ApiSances.postman_collection.json">Collection com os waypoints para o ostman</a><br></strong>
+<strong><a href="https://github.com/phlucasfr/API_faturamento_Sances/blob/main/ApiSances.postman_collection.json">Collection com os waypoints para o Postman</a><br></strong>
 <hr/>
 <strong>RECURSOS DISPONVEIS:<br></strong>
 <strong>Pessoas: GET, POST, PUT, DELETE<br></strong>
