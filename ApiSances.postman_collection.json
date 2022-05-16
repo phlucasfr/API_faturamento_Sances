@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "52cb9bd7-70c7-49db-8c0a-04deebafcf49",
+		"name": "ApiSances",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ConsultaPessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/pessoas",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaProdutos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/produtos",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaVendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/vendas",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"vendas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaFaturamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/faturamentos",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"faturamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pessoa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/pessoa/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CadastrarPessoa",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Phelipe Lucas\",\r\n    \"cidade\": \"Blumenau\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/pessoa/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarPessoa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Phelipe Lucas\",\r\n    \"cidade\": \"Manaus\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/pessoa/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletarPessoa",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/pessoa/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"pessoa",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/produto/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"produto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CadastrarProduto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pessoa_id\": 1,\r\n    \"descricao\": \"WD-40\",\r\n    \"tipo\": \"Óleo\",\r\n    \"valor\": 15\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/produto/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"produto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarProduto",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pessoa_id\": 1,\r\n    \"descricao\": \"WD-40\",\r\n    \"tipo\": \"Óleo\",\r\n    \"valor\": 10\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/produto/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"produto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletarProduto",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/produto/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"produto",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Venda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/venda/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"venda",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CadastrarVenda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"produto_id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/venda/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"venda",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarVenda",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"produto_id\": 2,\r\n    \"pessoa_id\": 2\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/venda/2",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"venda",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletarVenda",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"produto_id\": 2,\r\n    \"pessoa_id\": 2\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/venda/2",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"venda",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faturamento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/faturamento/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"faturamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Faturar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"venda_id\": 1,\r\n    \"dia\": 15,\r\n    \"mes\": 5,\r\n    \"ano\": 2022\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/faturamento/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"faturamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AlterarFaturamento",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"venda_id\": 1,\r\n    \"dia\": 15,\r\n    \"mes\": 5,\r\n    \"ano\": 2022\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/faturamento/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"faturamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletarFaturamento",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"venda_id\": 1,\r\n    \"dia\": 15,\r\n    \"mes\": 5,\r\n    \"ano\": 2022\r\n}"
+				},
+				"url": {
+					"raw": "https://phlucasfr.pythonanywhere.com/faturamento/1",
+					"protocol": "https",
+					"host": [
+						"phlucasfr",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"faturamento",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
