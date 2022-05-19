@@ -8,8 +8,10 @@ from resources.faturamentos import Faturamentos, Faturamento
 from flask_jwt_extended import JWTManager
 from sql_alchemy import banco
 
+#aponta o caminho dos templates e arquivos estaticos.
 app = Flask(__name__, template_folder='/home/phlucasfr/templates/', static_folder='/home/phlucasfr/templates/static/')
 
+#configs do app
 CORS(app)
 banco.init_app(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'dados da conexão com o db'
@@ -19,18 +21,17 @@ app.config['JWT_BLACKLIST_ENABLED'] = True
 api = Api(app)
 jwt = JWTManager(app)
 
+#defines as rotas
 @app.route('/')
 def entry():
     return render_template('index.html')
 
-@app.route('/appfinance')
-def entryfin():
-    return render_template('appfinance.html')
-
+#criar o banco de dados no primeiro request recebido
 @app.before_first_request
 def cria_banco():
     banco.create_all()
 
+#lista de rotas
 api.add_resource(Pessoas, '/pessoas')
 api.add_resource(Pessoa, '/pessoa/<int:pessoa_id>')
 api.add_resource(Produtos, '/produtos')
