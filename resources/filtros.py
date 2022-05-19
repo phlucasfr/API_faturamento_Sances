@@ -1,3 +1,4 @@
+# Metodo para padronizar os valores recebidos
 def normalize_path_params(venda_id=None,
                           dia_min=1,
                           dia_max=31,
@@ -28,7 +29,7 @@ def normalize_path_params(venda_id=None,
         'limit': limit,
         'offset': offset}
 
-
+# Cursores sql
 consulta_sem_vendas = "SELECT * FROM faturamentos \
 WHERE (dia >= %s and dia <= %s) \
 and (mes >= %s and mes <= %s) \

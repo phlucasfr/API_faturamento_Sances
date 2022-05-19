@@ -3,6 +3,7 @@ from models.faturamentos import FaturamentoModel
 from resources.filtros import normalize_path_params, consulta_com_vendas, consulta_sem_vendas
 import mysql.connector
 
+# Adiciona os argumentos que podem ser recebidos
 path_params = reqparse.RequestParser()
 path_params.add_argument('venda_id', type=int)
 path_params.add_argument('dia_min', type=int)
@@ -14,6 +15,8 @@ path_params.add_argument('ano_max', type=int)
 
 
 class Faturamentos(Resource):
+
+    # Metodo para consultas gerais de faturamento
     def get(self):
         connection = mysql.connector.connect(user='dados da conexão')
         cursor = connection.cursor()
@@ -33,7 +36,7 @@ class Faturamentos(Resource):
 
         faturamentos = []
         if resultado:
-            for linha in resultado:
+            for linha in resultado:  #append dos argumentos
                 faturamentos.append({
                     'faturamento_id': linha[0],
                     'venda_id': linha[1],
@@ -45,19 +48,23 @@ class Faturamentos(Resource):
         return {'faturamentos': faturamentos}  # SELECT * FROM hoteis
 
 
+
 class Faturamento(Resource):
+    # Adiciona argumentos que podem ser recebidos
     atributos = reqparse.RequestParser()
     atributos.add_argument('venda_id')
     atributos.add_argument('dia')
     atributos.add_argument('mes')
     atributos.add_argument('ano')
 
+    # Metodo para consulta por Id, GET
     def get(self, faturamento_id):
         faturamento = FaturamentoModel.find_faturamento(faturamento_id)
         if faturamento:
             return faturamento.json()
         return {'message': 'Faturamento not found.'}, 404
-
+    
+    # Metodo para cadastrar os faturamentos, POST
     def post(self, faturamento_id):
         if FaturamentoModel.find_faturamento(faturamento_id):
             return {"message": "Faturamento '{}' already exists.".format(self)}, 400  # Bad Request
@@ -71,6 +78,7 @@ class Faturamento(Resource):
             return {"message": "An error ocurred trying to create faturamento."}, 500  # Internal Server Error
         return faturamento.json(), 201
 
+    # Metodo para alterar o faturamento, PUT
     def put(self, faturamento_id):
         dados = Faturamento.atributos.parse_args()
         faturamento_encontrada = FaturamentoModel.find_faturamento(faturamento_id)
@@ -85,6 +93,7 @@ class Faturamento(Resource):
             return {'message': 'An internal erro ocurred tryng to save faturamento'}, 500  # internal server error
         return faturamento.json(), 201  # created
 
+    # Metodo para deletar o faturamento, DELETE
     def delete(self, faturamento_id):
         faturamento = FaturamentoModel.find_faturamento(faturamento_id)
         if faturamento:

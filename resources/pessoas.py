@@ -1,27 +1,33 @@
 from flask_restful import Resource, reqparse
 from models.pessoas import PessoaModel
 
+# Adiciona os argumentos que podem ser recebidos
 path_params = reqparse.RequestParser()
 path_params.add_argument('nome', type=str)
 path_params.add_argument('cidade', type=str)
 
 
 class Pessoas(Resource):
+
+    # Metodo para consultas gerais de pessoas
     def get(self):
         return {'pessoas': [pessoa.json() for pessoa in PessoaModel.query.all()]}
 
 
 class Pessoa(Resource):
+    # Adiciona argumentos que podem ser recebidos
     atributos = reqparse.RequestParser()
     atributos.add_argument('nome', type=str, required=True, help="The field 'nome' cannot be left blank.")
     atributos.add_argument('cidade', type=str)
 
+    # Metodo para consulta por Id, GET
     def get(self, pessoa_id):
         pessoa = PessoaModel.find_pessoa(pessoa_id)
         if pessoa:
             return pessoa.json()
         return {'message': 'Pessoa not found.'}, 404
-
+   
+    # Metodo para cadastrar as pessoas, POST
     def post(self, pessoa_id):
         if PessoaModel.find_pessoa(pessoa_id):
             return {"message": "Nome '{}' already exists.".format(self)}, 400  # Bad Request
@@ -34,7 +40,8 @@ class Pessoa(Resource):
         except:
             return {"message": "An error ocurred trying to create pessoa."}, 500  # Internal Server Error
         return pessoa.json(), 201
-
+    
+    # Metodo para alterar a pessoa, PUT
     def put(self, pessoa_id):
         dados = Pessoa.atributos.parse_args()
         pessoa_encontrada = PessoaModel.find_pessoa(pessoa_id)
@@ -49,6 +56,7 @@ class Pessoa(Resource):
             return {'message': 'An internal erro ocurred tryng to save pessoa'}, 500  # internal server error
         return pessoa.json(), 201  # created
 
+    # Metodo para deletar a pessoa, DELETE
     def delete(self, pessoa_id):
         pessoa = PessoaModel.find_pessoa(pessoa_id)
         if pessoa:
