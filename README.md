@@ -11,7 +11,8 @@
 <strong>Vendas: GET, POST, PUT, DELETE<br></strong>
 <strong>Faturamentos: GET, POST, PUT, DELETE<br><br></strong>
 
-<strong>FILTROS DISPONVEIS:<br></strong>
+<strong>FILTROS DISPONVEIS:<br><br></strong>
+ Exemplo: ![Alt text](screenshots/01.png?raw=true "APP") <br><br>
 <strong>venda_id | ex: ?venda_id=1<br></strong>
 <strong>dia_min | ex: ?dia_min=1<br></strong>
 <strong>dia_max | ex: ?dia_max=31<br></strong>
